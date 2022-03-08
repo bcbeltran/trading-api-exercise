@@ -14,6 +14,20 @@ def coinbase():
     return coinbaseTick.json()
 
 def kraken():
-    krakenTick = requests.get
+    krakenTick = requests.post('https://api.kraken.com/0/public/Ticker', 
+    data=json.dumps({"pair": "XXBTZUSD"}),
+    headers={'content-type':'application/json'})
+    return krakenTick.json()
 
+print('This is the Bitstamp response:')
+print('========')
 print(bitstamp())
+print('This is the BitFinex response:')
+print('========')
+print(bitfinex())
+print('This is the Coinbase response:')
+print('========')
+print(coinbase())
+print('This is the Kraken response:')
+print('========')
+print(kraken())
